@@ -3,7 +3,7 @@ class Gif {
     constructor(id,x,y,timer) {
         this.id = id;
         this.position = createVector(x,y);
-        this.file = ceil(random(4));
+        this.file = ceil(random(6));
         this.timer = timer;
         this.zero = this.timer.getTime();
         this.loadingSize = 20;
