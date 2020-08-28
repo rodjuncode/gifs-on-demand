@@ -30,7 +30,7 @@ function draw() {
 }
 
 function mouseClicked() {
-  mostrarGif = true;
+  carregando = true;
   if (g != null) g.remove();
   carregarGif();
 }
