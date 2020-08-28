@@ -1,7 +1,7 @@
 // gifs by https://giphy.com/AXEL_DE_STAMPA
 
 let g;
-let mostrarGif = false;
+let carregando = false;
 let timer = 0;
 
 function preload() {
@@ -20,7 +20,7 @@ function setup() {
 function draw() {
   background(255);  
   
-  if (!mostrarGif) {
+  if (carregando) {
     // interface porca para mostra que estah carregando
     rectMode(CENTER);
     rect(width/2,height/2,20*sin(timer),20*sin(timer));
@@ -30,7 +30,7 @@ function draw() {
 }
 
 function mouseClicked() {
-  mostrarGif = false;
+  mostrarGif = true;
   if (g != null) g.remove();
   carregarGif();
 }
@@ -38,11 +38,13 @@ function mouseClicked() {
 function carregarGif() {
   let qualGif = ceil(random(3));
   g = createImg('assets/' + qualGif + '.gif', 'Gifs by AXEL_DE_STAMPA', '', carregouGif);  
+  g.hide();
   console.log('Carregando ' + qualGif + '.gif');
 }
 
 function carregouGif() {
   g.position(0,0);
-  mostrarGif = true;
+  g.show();
+  carregando = false;
   console.log("suavão, gif carregado!");  
 }
