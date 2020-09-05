@@ -10,13 +10,13 @@ let gifs = [];
 let idCounter = 0;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(1000, 400);
     timer = new Timer();
 
 }
 
 function draw() {
-    background(255); 
+    background(147,181,213); 
 
     if (splash) {
         textFont('Courier New');
@@ -38,13 +38,13 @@ function draw() {
 
 function mouseClicked() {
     splash = false;
-    if (gifs.length >= 5) {
+    if (gifs.length >= 50) {
         let oldGif = gifs.shift();
         oldGif.kill();
         oldGif = null;
     }
     idCounter++;
-    let newGif = new Gif(idCounter,constrain(mouseX,0,width),constrain(mouseY,0,height),timer);
+    let newGif = new Gif(idCounter,constrain(mouseX,0,width-135),height-100,timer);
     gifs.push(newGif);    
 }
 
